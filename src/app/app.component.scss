@@ -1,0 +1,156 @@
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25),only screen and (min--moz-device-pixel-ratio:1.25),only screen and (-o-min-device-pixel-ratio:1.25 / 1),only screen and (min-device-pixel-ratio:1.25),only screen and (min-resolution:200dpi),only screen and (min-resolution:1.25dppx) {
+    .search-rankings-tool {
+        background:url(../assets/local_search_checker_800.jpg) center top no-repeat;
+        background-size: 400px 340px
+    }
+}
+
+@media screen and (min-width: 400px) {
+    .search-rankings-tool {
+        background:url(../assets/local_search_checker_800.jpg) center top no-repeat;
+        background-size: 800px 559px
+    }
+}
+
+// @media only screen and (min-width: 400px) and (-webkit-min-device-pixel-ratio:1.25),only screen and (min-width:400px) and (min--moz-device-pixel-ratio:1.25),only screen and (min-width:400px) and (-o-min-device-pixel-ratio:1.25 / 1),only screen and (min-width:400px) and (min-device-pixel-ratio:1.25),only screen and (min-width:400px) and (min-resolution:200dpi),only screen and (min-width:400px) and (min-resolution:1.25dppx) {
+//     .search-rankings-tool {
+//         background:url(../../assets/images/local_search_checker_800@2x.jpg) center top no-repeat;
+//         background-size: 800px 559px
+//     }
+// }
+
+@media screen and (min-width: 800px) {
+    .search-rankings-tool {
+        background:url(../assets/local_search_checker.jpg) center top no-repeat;
+        background-size: 1800px 559px
+    }
+}
+
+// @media only screen and (min-width: 800px) and (-webkit-min-device-pixel-ratio:1.25),only screen and (min-width:800px) and (min--moz-device-pixel-ratio:1.25),only screen and (min-width:800px) and (-o-min-device-pixel-ratio:1.25 / 1),only screen and (min-width:800px) and (min-device-pixel-ratio:1.25),only screen and (min-width:800px) and (min-resolution:200dpi),only screen and (min-width:800px) and (min-resolution:1.25dppx) {
+//     .search-rankings-tool {
+//         background:url(../../assets/images/local_search_checker@2x.jpg) center top no-repeat;
+//         background-size: 1800px 559px
+//     }
+// }
+
+#search-ranking {
+    background: url(../assets/local_search_checker.jpg) center top no-repeat;
+    background-size: 1800px 559px;
+}
+
+.input-wrapper{
+    position: relative;
+}
+
+.inline_wrap label, .inline_wrap .gfield_label, .gform_wrapper form .gform_body ul li.gfield.inside label, .gform_wrapper form .gform_body ul li.gfield.inside .gfield_label {
+    position: absolute;
+    z-index: 2;
+    font-size: 17px;
+    left: 16px;
+    top: 16px;
+    will-change: transform;
+    transition: all .2s ease-in;
+    color: #252d13;
+}
+
+.inline_wrap.active label, .gform_wrapper form .gform_body ul li.gfield.inside.active label {
+    transform: translateY(-11px);
+    font-size: 15px;
+}
+
+.inline_wrap.active input {
+    padding: 27px 16px 5px;
+}
+
+input[type=text], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], textarea, select, .radio-outer, .gform_wrapper input[type=text], input[type=email], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], textarea, select, .radio-outer {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: #fff;
+    border-radius: 5px;
+    font-size: 17px;
+    color: #1d2b3b;
+    line-height: 24px;
+    padding: 14px;
+    border: 0;
+    outline: 0;
+    width: calc(100%);
+    font-family: source sans pro,sans-serif;
+    -webkit-box-shadow: 0 2px 6px 0 rgba(123,124,122,.22), 0 13px 12px -11px rgba(180,181,176,.32);
+    box-shadow: 0 2px 6px 0 rgba(123,124,122,.22), 0 13px 12px -11px rgba(180,181,176,.32);
+    min-height: 56px;
+}
+
+
+.inline_wrap.select label, .gform_wrapper form .gform_body ul li.gfield.inside.select label {
+    transform: translateY(-11px);
+    font-size: 15px;
+}
+ select {
+    background: #fff;
+    border-radius: 5px;
+    font-size: 17px;
+    color: #1d2b3b;
+    line-height: 24px;
+    outline: 0;
+    box-shadow: 0 2px 6px 0 rgba(123,124,122,.22), 0 13px 12px -11px rgba(180,181,176,.32);
+    text-transform: none;
+}
+
+.select-container, .gform_wrapper .select-container {
+    position: relative;
+    display: inline;
+}
+
+.inline_wrap select, .gform_wrapper form .gform_body ul li.gfield.inside select {
+    padding: 27px 16px 5px;
+    margin-bottom: 24px;
+}
+
+figure.icon-google_maps {
+    background: url(../assets/icon-google_maps.svg) no-repeat center center;
+}
+
+.engines .radio-outer input[type=radio]:checked+label {
+    border: 1px solid #547bba;
+}
+
+.engines .radio-outer input[type=radio] {
+    position: absolute;
+    z-index: 2;
+    left: 8px;
+    top: 10px;
+}
+
+.engines .radio-outer .radio-inner, .engines .radio-outer .wpcf7-radio .wpcf7-list-item {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    flex-grow: 0;
+    flex-basis: auto;
+    margin: 0 16px 0 0;
+}
+
+.engines .radio-outer label.radio, .engines .radio-outer .wpcf7-list-item-label {
+    cursor: pointer;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: flex-start;
+    padding: 7px 7px 7px 28px;
+    position: relative;
+}
+
+.engines .radio-outer label.radio span, .engines .radio-outer .wpcf7-list-item-label span {
+    flex: 1;
+    flex-grow: 0;
+    margin-right: 8px;
+    line-height: 24px;
+    flex: 1;
+    margin-left: 8px;
+}
