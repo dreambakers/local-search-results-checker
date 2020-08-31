@@ -68,8 +68,8 @@
       <div class="input-wrapper select country inline_wrap w-50 m-2 mt-0">
         <label class="field-label" for="search-country">Country</label>
         <div class="select-container">
-          <select autocomplete="off" class="input-select US">
-            <option value="US" selected="selected">United States</option>
+          <select autocomplete="off" class="input-select US" [(ngModel)]="selectedCountry">
+            <option value="US">United States</option>
             <option value="GB">United Kingdom</option>
             <option value="CA">Canada</option>
             <option value="AU">Australia</option>
@@ -267,8 +267,12 @@
         <label class="field-label" for="language">Language</label>
         <div class="select-container">
           <select autocomplete="off" class="input-select" name="language">
-            <option value="en">English</option>
+
+            <option value="" *ngFor="let item of getSelectedCountryLangauges() | keyvalue">
+              {{item.value}}
+            </option>
           </select>
+
         </div>
       </div>
     </div>
