@@ -1,1 +1,27 @@
-<p>local-search-results works!</p>
+<div id="serp-results">
+  <div class="info">
+    <span class="search-term"><i>Search Term:</i>test</span>
+    <span class="location"><i>Location:</i>times square</span>
+    <span class="language"><i>Language:</i>en</span>
+    <span class="engine"><i>Search Engine:</i>google</span>
+    <button type="reset" class="btn reset">Search again</button>
+  </div>
+
+  <div class="entry-content instructions panel-content">
+    <h2 class="text-center" style="font-size: 1.4375rem">Please use the page links below to view your localized search results. 
+    </h2>
+  </div>
+
+  <div style="max-width: 960px; margin: 0 auto">
+    <carousel [cellWidth]="180" [margin]="0">
+        <div class="carousel-cell d-flex align-items-center" aria-hidden="true" *ngFor="let page of pages">
+            <div class="bg-white d-flex flex-column align-items-center justify-content-center" style="width: 170px; border-radius: 5px; padding: 16px;  margin: 0 0 16px 16px;"> 
+                <img src="../../assets/icon-google.svg" style="height: 28px; width: 28px" alt="">
+                <a target="_blank" href="https://www.google.com/search?q=test&amp;gl=us&amp;hl=en&amp;gws_rd=cr&amp;pws=0&amp;uule=w+CAIQICIMdGltZXMgc3F1YXJl&amp;start=30">
+                    <strong>Page {{page}}</strong>
+                </a>
+            </div>
+        </div>
+    </carousel>
+  </div>
+</div>

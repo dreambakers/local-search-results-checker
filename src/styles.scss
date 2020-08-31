@@ -40,3 +40,12 @@ h1 {
     }
 }
 
+.carousel-arrow-disabled {
+    opacity: 0 !important;
+}
+
+.carousel-arrow{
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+}
