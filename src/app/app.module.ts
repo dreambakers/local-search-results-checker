@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 
@@ -19,7 +19,8 @@ import { LocalSearchResultsComponent } from './local-search-results/local-search
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

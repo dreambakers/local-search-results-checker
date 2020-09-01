@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-local-search-form',
@@ -6,9 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./local-search-form.component.scss']
 })
 export class LocalSearchFormComponent implements OnInit {
-  searchEngine = 'google';
-  selectedCountry = 'US';
-  selectedLangauge = 'en';
+  searchForm: FormGroup;
 
   countries = {
     AF: {
@@ -2028,27 +2028,56 @@ export class LocalSearchFormComponent implements OnInit {
     },
   }
 
-  constructor() { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.intializeForm();
   }
 
-  isFocused(el) {
-    return document.activeElement === el || el.value;
+  intializeForm() {
+    this.searchForm = this.formBuilder.group({
+      term: ['', [Validators.required]],
+      location: ['', [Validators.required]],
+      country: ['US', [Validators.required]],
+      langauge: ['en', [Validators.required]],
+      searchEngine: ['google', [Validators.required]],
+    });
   }
 
-  setFocus(el) {
-    el.focus();
+  isFocused(element) {
+    return document.activeElement === element || element.value;
+  }
+
+  setFocus(element) {
+    element.focus();
   }
 
   onBlur() {}
 
+  onSearchEngineChange(selectedSearchEngine) {
+    this.searchForm.controls['searchEngine'].setValue(selectedSearchEngine);
+  }
+
   onCountryChange(value) {
-    this.selectedCountry = value;
-    this.selectedLangauge = Object.keys(this.getSelectedCountryLangauges())[0];
+    this.searchForm.controls['country'].setValue(value);
+    this.searchForm.controls['langauge'].setValue(Object.keys(this.getSelectedCountryLangauges())[0]);
   }
 
   getSelectedCountryLangauges() {
-    return this.countries[this.selectedCountry].languages;
+    return this.countries[this.searchForm.controls['country'].value].languages;
+  }
+
+  onSubmit() {
+    if (this.searchForm.invalid) {
+      return;
+    }
+    this.router.navigateByUrl('/results', {
+      state: {
+        searchQuery: this.searchForm.value
+      }
+    });
   }
 }
