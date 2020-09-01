@@ -1,12 +1,12 @@
 <div class="local-search-container">
   <div class="d-flex flex-column flex-md-row">
-    <div class="input-wrapper location inline_wrap text-input flex-fill m-2" [class.active]="isFocused(searchTerm)"
+    <div class="input-wrapper inline_wrap flex-fill m-2" [class.active]="isFocused(searchTerm)"
       (click)="setFocus(searchTerm)">
       <label class="field-label">Enter your search term</label>
       <input autocomplete="off" class="field-input inline" size="30" type="text" #searchTerm (blur)="onBlur()" />
     </div>
 
-    <div class="input-wrapper location inline_wrap text-input flex-fill m-2" [class.active]="isFocused(searchLocation)"
+    <div class="input-wrapper inline_wrap flex-fill m-2" [class.active]="isFocused(searchLocation)"
       (click)="setFocus(searchLocation)">
       <label class="field-label">Enter a search location (e.g. Chicago, IL; 90219 CA)</label>
       <input autocomplete="off" class="field-input inline" size="30" type="text" #searchLocation (blur)="onBlur()" />
