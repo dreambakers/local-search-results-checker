@@ -15,14 +15,14 @@
 
   <div style="max-width: 960px; margin: 0 auto">
     <carousel [cellWidth]="cellWidth" [height]="100">
-      <div class="carousel-cell d-flex align-items-center" aria-hidden="true" *ngFor="let page of pages">
+      <div class="carousel-cell d-flex align-items-center" aria-hidden="true" *ngFor="let page of pages; let i = index">
         <div class="bg-white d-flex flex-column align-items-center justify-content-center page-container">
           <img src="../../assets/icon-google.svg" alt="">
           <a
             class="mt-2"
             target="_blank"
-            href="https://www.google.com/search?q=test&amp;gl=us&amp;hl=en&amp;gws_rd=cr&amp;pws=0&amp;uule=w+CAIQICIMdGltZXMgc3F1YXJl&amp;start=30">
-            <strong>Page {{page}}</strong>
+            [href]="page">
+            <strong>Page {{i + 1}}</strong>
           </a>
         </div>
       </div>

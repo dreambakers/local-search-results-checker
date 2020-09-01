@@ -1,17 +1,17 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
+import { constants } from '../app.constants';
+
 @Component({
   selector: 'app-local-search-results',
   templateUrl: './local-search-results.component.html',
   styleUrls: ['./local-search-results.component.scss']
 })
 export class LocalSearchResultsComponent implements OnInit {
-  pages = [
-    1,2,3,4,5,6,7,8,9,10
-  ];
+  pages = [];
   innerWidth;
   searchQuery;
+  constants = constants;
 
   constructor(
     private router: Router,
@@ -22,6 +22,14 @@ export class LocalSearchResultsComponent implements OnInit {
       setTimeout(() => {
         this.navigateToHome();
       }, 1);
+    } else {
+      const { term, location, country, langauge, searchEngine } = this.searchQuery;
+      const baseUrl = constants.countries[country].domain;
+      for (let i = 0, j = 0; i < 10; i++, j += 10) {
+        let pageUrl = `https://${baseUrl}/search?q=${encodeURI(term)}&gl=${country}&hl=${langauge}&gws_rd=cr&pws=0&uule=${this.uule(location)}`;
+        pageUrl += j > 0 ? `&start=${j}` : '';
+        this.pages.push(pageUrl);
+      }
     }
   }
 
@@ -31,6 +39,25 @@ export class LocalSearchResultsComponent implements OnInit {
 
   navigateToHome() {
     this.router.navigateByUrl('/');
+  }
+
+  uuleSecret(length){
+    const alphabets = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    const alphabetsLower = alphabets.toLowerCase();
+    const digits = '0123456789';
+    const secretList = [
+      ...alphabets.split(''),
+      ...alphabetsLower.split(''),
+      ...digits.split(''),
+      ...["-", "_"]
+    ];
+    return secretList[length % secretList.length];
+  }
+
+  uule(city) {
+    const secret = this.uuleSecret(city.length);
+    const hashed = btoa(city);
+    return `w+CAIQICI${secret}${hashed}`.replace(/=/g, '');
   }
 
   get cellWidth() {
