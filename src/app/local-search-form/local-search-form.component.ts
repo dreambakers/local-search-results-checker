@@ -28,6 +28,21 @@ export class LocalSearchFormComponent implements OnInit {
       langauge: ['en', [Validators.required]],
       searchEngine: ['google', [Validators.required]],
     });
+    setTimeout(() => {
+      this.attemptToRestore();
+    }, 1);
+  }
+
+  attemptToRestore() {
+    const savedQuery = JSON.parse(localStorage.getItem('query'));
+    if (savedQuery) {
+      const { term, location, country, langauge, searchEngine } = savedQuery;
+      this.searchForm.controls['term'].setValue(term);
+      this.searchForm.controls['location'].setValue(location);
+      this.searchForm.controls['country'].setValue(country);
+      this.searchForm.controls['langauge'].setValue(langauge);
+      this.searchForm.controls['searchEngine'].setValue(searchEngine);
+    }
   }
 
   isFocused(element) {
@@ -53,10 +68,16 @@ export class LocalSearchFormComponent implements OnInit {
     return this.constants.countries[this.searchForm.controls['country'].value].languages;
   }
 
+  resetForm() {
+    localStorage.clear();
+    this.intializeForm();
+  }
+
   onSubmit() {
     if (this.searchForm.invalid) {
       return;
     }
+    localStorage.setItem('query', JSON.stringify(this.searchForm.value));
     this.router.navigateByUrl('/results', {
       state: {
         searchQuery: this.searchForm.value
