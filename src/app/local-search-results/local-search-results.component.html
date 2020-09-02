@@ -1,9 +1,17 @@
 <div id="serp-results">
   <div class="info">
-    <span class="search-term mb-3"><i>Search Term:</i>test</span>
-    <span class="location mb-3"><i>Location:</i>times square</span>
-    <span class="language mb-3"><i>Language:</i>en</span>
-    <span class="engine mb-3"><i>Search Engine:</i>google</span>
+    <span class="search-term mb-3"><i>Search Term:</i>
+      {{ searchQuery?.term }}
+    </span>
+    <span class="location mb-3"><i>Location:</i>
+      {{ searchQuery?.location }}
+    </span>
+    <span class="language mb-3"><i>Language:</i>
+      {{ searchQuery?.langauge }}
+    </span>
+    <span class="engine mb-3"><i>Search Engine:</i>
+      {{ searchQuery?.searchEngine }}
+    </span>
     <button type="reset" class="btn reset mb-3" (click)="navigateToHome()">Search again</button>
   </div>
 
@@ -22,7 +30,12 @@
     <carousel [cellWidth]="cellWidth" [height]="100">
       <div class="carousel-cell d-flex align-items-center" aria-hidden="true" *ngFor="let page of pages; let i = index">
         <div class="bg-white d-flex flex-column align-items-center justify-content-center page-container">
-          <img src="../../assets/icon-google.svg" alt="">
+          <img
+            src="{{ searchQuery.searchEngine === 'google' ?
+                '../../assets/icon-google.svg' :
+                '../../assets/icon-google_maps.svg'
+            }}"
+            alt="">
           <a
             class="mt-2"
             target="_blank"
