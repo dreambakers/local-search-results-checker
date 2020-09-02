@@ -24,6 +24,14 @@ h1 {
     }
 }
 
+@media screen and (max-width: 414px) {
+    .inline_wrap {
+        label {
+            font-size: 0.86rem !important;
+        }
+    }
+}
+
 @media all and (min-width: 800px) {
     h1 {
         font-size:42px;

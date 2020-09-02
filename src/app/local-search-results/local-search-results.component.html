@@ -1,15 +1,20 @@
 <div id="serp-results">
   <div class="info">
-    <span class="search-term"><i>Search Term:</i>test</span>
-    <span class="location"><i>Location:</i>times square</span>
-    <span class="language"><i>Language:</i>en</span>
-    <span class="engine"><i>Search Engine:</i>google</span>
-    <button type="reset" class="btn reset" (click)="navigateToHome()">Search again</button>
+    <span class="search-term mb-3"><i>Search Term:</i>test</span>
+    <span class="location mb-3"><i>Location:</i>times square</span>
+    <span class="language mb-3"><i>Language:</i>en</span>
+    <span class="engine mb-3"><i>Search Engine:</i>google</span>
+    <button type="reset" class="btn reset mb-3" (click)="navigateToHome()">Search again</button>
   </div>
 
   <div class="entry-content instructions panel-content">
-    <h2 class="text-center m-4" style="font-size: 1.4375rem">
+    <h2 class="text-center m-4 mt-0" style="font-size: 1.4375rem">
       Please use the page links below to view your localized search results.
+      <div class="tooltip-container d-inline">
+        <span class="hilfe custom-tooltip text-center" data-tooltip="In Google search results, if you click to the next page, the search engine will reset your location.">
+          ?
+        </span>
+      </div>
     </h2>
   </div>
 
