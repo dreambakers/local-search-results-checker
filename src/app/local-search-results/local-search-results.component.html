@@ -31,9 +31,10 @@
       <div class="carousel-cell d-flex align-items-center" aria-hidden="true" *ngFor="let page of pages; let i = index">
         <div class="bg-white d-flex flex-column align-items-center justify-content-center page-container">
           <img
-            src="{{ searchQuery.searchEngine === 'google' ?
-                '../../assets/icon-google.svg' :
-                '../../assets/icon-google_maps.svg'
+            src="{{
+              searchQuery.searchEngine === 'google' ?
+              'assets/icon-google.svg' :
+              'assets/icon-google_maps.svg'
             }}"
             alt="">
           <a
