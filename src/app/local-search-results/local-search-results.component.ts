@@ -27,6 +27,7 @@ export class LocalSearchResultsComponent implements OnInit {
       const baseUrl = constants.countries[country].domain;
       for (let i = 0, j = 0; i < 10; i++, j += 10) {
         let pageUrl = `https://${baseUrl}/search?q=${encodeURI(term)}&gl=${country}&hl=${langauge}&gws_rd=cr&pws=0&uule=${this.uule(location)}`;
+        pageUrl += searchEngine === 'google-maps' ? `&tbm=lcl` : '';
         pageUrl += j > 0 ? `&start=${j}` : '';
         this.pages.push(pageUrl);
       }
