@@ -1,4 +1,4 @@
-<div id="serp-results">
+<div id="search-results">
   <div class="info">
     <span class="search-term mb-3"><i>Search Term:</i>
       {{ searchQuery?.term }}
@@ -29,7 +29,9 @@
   <div style="max-width: 960px; margin: 0 auto">
     <carousel [cellWidth]="cellWidth" [height]="120">
       <div class="carousel-cell d-flex align-items-center" aria-hidden="true" *ngFor="let page of pages; let i = index">
-        <div class="bg-white d-flex flex-column align-items-center justify-content-center page-container">
+        <div
+          (click)="onPageClick(page)"
+          class="bg-white d-flex flex-column align-items-center justify-content-center page-container">
           <img
             src="{{
               searchQuery.searchEngine === 'google' ?
@@ -37,12 +39,9 @@
               'assets/icon-google_maps.svg'
             }}"
             alt="">
-          <a
-            class="mt-2"
-            target="_blank"
-            [href]="page">
+          <span class="page-number mt-2">
             <strong>Page {{i + 1}}</strong>
-          </a>
+          </span>
         </div>
       </div>
     </carousel>

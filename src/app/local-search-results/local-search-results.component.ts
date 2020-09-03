@@ -61,8 +61,13 @@ export class LocalSearchResultsComponent implements OnInit {
     return `w+CAIQICI${secret}${hashed}`.replace(/=/g, '');
   }
 
+  onPageClick(url){
+    window.open(url, '_blank');
+  }
+
+
   get cellWidth() {
-    return this.innerWidth <= 650 ? 95 : 180;
+    return this.innerWidth <= 650 ? 96 : 160;
   }
 
   @HostListener('window:resize', ['$event'])
