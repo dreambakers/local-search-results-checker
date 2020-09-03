@@ -84,4 +84,8 @@ export class LocalSearchFormComponent implements OnInit {
       }
     });
   }
+
+  getControlValue(controlName) {
+    return this.searchForm.controls[controlName].value;
+  }
 }
