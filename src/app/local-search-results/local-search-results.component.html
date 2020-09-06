@@ -15,8 +15,8 @@
     <button type="reset" class="btn reset mb-3" (click)="navigateToHome()">Search again</button>
   </div>
 
-  <div class="entry-content instructions panel-content">
-    <h2 class="text-center m-4 mt-0" style="font-size: 1.4375rem">
+  <div class="instructions">
+    <h2 class="text-center m-4 mt-0">
       Please use the page links below to view your localized search results.
       <div class="tooltip-container d-inline">
         <span class="hilfe custom-tooltip text-center" data-tooltip="In Google search results, if you click to the next page, the search engine will reset your location.">
@@ -26,7 +26,7 @@
     </h2>
   </div>
 
-  <div style="max-width: 960px; margin: 0 auto">
+  <div class="carousel-wrapper">
     <carousel [cellWidth]="cellWidth" [height]="120">
       <div class="carousel-cell d-flex align-items-center" aria-hidden="true" *ngFor="let page of pages; let i = index">
         <div
@@ -35,8 +35,8 @@
           <img
             src="{{
               searchQuery.searchEngine === 'google' ?
-              'assets/icon-google.svg' :
-              'assets/icon-google_maps.svg'
+              'assets/images/icon-google.svg' :
+              'assets/images/icon-google_maps.svg'
             }}"
             alt="">
           <span class="page-number mt-2">
